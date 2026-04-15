@@ -10,6 +10,12 @@ TemplateMo 599 Noir Fashion
 https://templatemo.com/tm-599-noir-fashion
 -->
 </head>
+<a href="https://wa.me/5215521387332?text=Hola%20quiero%20información%20sobre%20productos%20personalizados" 
+   class="whatsapp-float" 
+   target="_blank">
+   
+   <img src="https://img.icons8.com/material-outlined/512/ffffff/whatsapp--v1.png" alt="WhatsApp">
+</a>
 <body>
     <nav id="navbar">
         <div class="nav-container">
@@ -454,5 +460,28 @@ https://templatemo.com/tm-599-noir-fashion
     </footer>
 
     <script src="templatemo-noir-scripts.js"></script>
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // evita que el template lo bloquee
+
+    const form = e.target;
+
+    const data = new FormData(form);
+
+    fetch("https://api.staticforms.dev/submit", {
+        method: "POST",
+        body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Mensaje enviado ✨");
+        form.reset();
+    })
+    .catch(error => {
+        alert("Error al enviar ❌");
+        console.error(error);
+    });
+});
+</script>
 </body>
 </html>
